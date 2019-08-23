@@ -1,0 +1,64 @@
+WebDriver driver;
+	@Given("^The user is on home page$")
+	public void the_user_is_on_home_page() throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+		System.setProperty("webdriver.chrome.driver", "./driver/chromedriver.exe");
+		driver = new ChromeDriver();
+		driver.navigate().to("http://demowebshop.tricentis.com/");
+	}
+
+	@Given("^register linktest displayed$")
+	public void register_linktest_displayed() throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+		
+	}
+
+	@When("^User navigate to register page$")
+	public void user_navigate_to_register_page() throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+		driver.findElement(By.linkText("Register")).click();
+	}
+
+	@When("^User select appropriate gender$")
+	public void user_select_appropriate_gender() throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+		driver.findElement(By.id("gender-female")).click();
+	}
+
+	@When("^User enters valid First Name and Last Name$")
+	public void user_enters_valid_First_Name_and_Last_Name() throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+		driver.findElement(By.id("FirstName")).sendKeys("Shikha");
+		driver.findElement(By.id("LastName")).sendKeys("Yadav");
+	}
+
+	@When("^User enters valid EmailId$")
+	public void user_enters_valid_EmailId() throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+		driver.findElement(By.id("Email")).sendKeys("bdoooofd@gmail.com");
+	}
+
+	@When("^User enters valid Password$")
+	public void user_enters_valid_Password() throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+		driver.findElement(By.id("Password")).sendKeys("123456@");
+		
+	}
+
+	@When("^User re-enters the Password$")
+	public void user_re_enters_the_Password() throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+		driver.findElement(By.id("ConfirmPassword")).sendKeys("123456@");
+	}
+
+	@Then("^Message displayed Your registration completed$")
+	public void message_displayed_Your_registration_completed() throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+		driver.findElement(By.id("register-button")).click();
+	}
+
+	@Then("^Log out Link displayed$")
+	public void log_out_Link_displayed() throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+		driver.findElement(By.linkText("Log out")).click();
+	}
